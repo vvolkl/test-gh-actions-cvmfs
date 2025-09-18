@@ -1,0 +1,17 @@
+name: Minimal usage
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: cvmfs-contrib/github-action-cvmfs@v5.3
+    - name: Test CernVM-FS
+      run: |
+        ls /cvmfs/lhcb.cern.ch
+        ls /cvmfs/auger.egi.eu
+        ls /cvmfs/dune.opensciencegrid.org
+        ls /cvmfs/sw.hsf.org
+        ls /cvmfs/sft.cern.ch
+        source /cvmfs/sft.cern.ch/lcg/views//LCG_108/arm64-mac15-clang170-opt/setup.sh
+        root --version
+        gaudirun.py -h
