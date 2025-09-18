@@ -10,6 +10,7 @@ jobs:
         sudo mkdir /cvmfs/sft.cern.ch
         sudo mount -t cvmfs sft.cern.ch /cvmfs/sft.cern.ch
         sleep 1
-        source /cvmfs/sft.cern.ch/lcg/views//LCG_108/arm64-mac15-clang170-opt/setup.sh
+        ls /cvmfs/sft.cern.ch
+        . /cvmfs/sft.cern.ch/lcg/views//LCG_108/arm64-mac15-clang170-opt/setup.sh
         root --version
         gaudirun.py -h
