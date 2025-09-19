@@ -8,8 +8,10 @@ jobs:
     - name: Test CernVM-FS
       run: |
         sudo mkdir -p /Library/Application\ Support/fuse-t/cfg/
-        sudo zsh -c 'echo "namedattr=true" >> /Library/Application\ Support/fuse-t/cfg/fuse-t.ini'
+        #sudo zsh -c 'echo "namedattr=true" >> /Library/Application\ Support/fuse-t/cfg/fuse-t.ini'
         sudo mkdir /cvmfs/sft.cern.ch
+        sudo mkdir /cvmfs/cvmfs-config.cern.ch
+        sudo mount -o backend=smb -t cvmfs cvmfs-config.cern.ch /cvmfs/cvmfs-config.cern.ch
         sudo mount -o backend=smb -t cvmfs sft.cern.ch /cvmfs/sft.cern.ch
         sleep 1
         ls /cvmfs/sft.cern.ch
